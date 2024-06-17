@@ -1,0 +1,119 @@
+User Roles
+End Users: Passengers who use the mobile app to track shuttles.
+Administrators: Manage the shuttle operations, routes, schedules, and user management via a web dashboard.
+Shuttle Drivers: Provide real-time location data and receive route instructions.
+Functional Requirements
+End Users
+User Registration and Login:
+
+Users should be able to register using their email, phone number, or social media accounts.
+Users should log in securely using their credentials.
+Shuttle Tracking:
+
+Real-time location tracking of shuttles on a map.
+View estimated arrival times of shuttles at specified stops.
+Get notified when a shuttle is approaching a user’s location.
+Route and Schedule Information:
+
+View shuttle routes and schedules.
+Receive updates on route changes or delays.
+Preferences and Notifications:
+
+Set notification preferences (e.g., preferred routes, notification types).
+Receive push notifications for shuttle arrivals, delays, and emergencies.
+Administrators
+Dashboard Access:
+
+Secure login to access the administrative dashboard.
+Shuttle Management:
+
+Add, update, or remove shuttle information (e.g., shuttle IDs, routes).
+Monitor real-time location of all shuttles.
+Assign routes and schedules to shuttles.
+User Management:
+
+Manage user accounts (create, update, delete).
+View user activity and preferences.
+Reporting and Analytics:
+
+Generate reports on shuttle performance (e.g., on-time arrivals, usage statistics).
+View analytics on user engagement and shuttle operations.
+Shuttle Drivers
+Driver Login:
+
+Secure login to the driver interface.
+Route Updates:
+
+Receive real-time route instructions and updates.
+Report route changes or issues.
+Location Reporting:
+
+Automatically send real-time location data to the backend.
+Manual check-ins for specific stops if needed.
+Non-Functional Requirements
+Scalability:
+
+The system should handle a growing number of users, shuttles, and routes without performance degradation.
+Performance:
+
+Real-time updates for shuttle locations should have low latency.
+The backend should respond to API requests within acceptable time limits (e.g., <200ms).
+Security:
+
+Secure authentication and authorization for all user roles.
+Data encryption in transit and at rest.
+Regular security audits and compliance with data protection regulations (e.g., GDPR).
+Reliability:
+
+High availability with minimal downtime.
+Automatic failover and disaster recovery mechanisms in place.
+Maintainability:
+
+Clean and well-documented codebase.
+Modular architecture to facilitate updates and new feature integrations.
+Usability:
+
+Intuitive user interfaces for both mobile app users and administrators.
+Comprehensive documentation and support for all user roles.
+Integration Requirements
+GPS and Mapping Services:
+
+Integration with GPS services to track real-time shuttle locations.
+Use of mapping APIs (e.g., Google Maps, Mapbox) for route visualization.
+Notification Services:
+
+Integration with push notification services (e.g., Firebase Cloud Messaging, AWS SNS) for real-time alerts.
+Payment Gateways (if applicable):
+
+Integration with payment gateways if the service involves ticket purchases or subscriptions.
+Third-Party Authentication:
+
+Support for OAuth2.0 for social media logins (e.g., Google, Facebook).
+Example API Requirements
+Authentication
+POST /api/register: Register a new user.
+POST /api/login: Authenticate a user and return a JWT token.
+POST /api/logout: Invalidate the user's session.
+Shuttle Management (Admin)
+GET /api/shuttles: Retrieve a list of all shuttles.
+POST /api/shuttles: Add a new shuttle.
+PUT /api/shuttles/
+: Update shuttle information.
+DELETE /api/shuttles/
+: Remove a shuttle.
+Real-Time Tracking
+GET /api/shuttle/
+/location: Retrieve the real-time location of a shuttle.
+POST /api/shuttle/
+/location: Update the location of a shuttle (driver side).
+Routes and Schedules
+GET /api/routes: Retrieve all routes and schedules.
+POST /api/routes: Add a new route.
+PUT /api/routes/
+: Update a route.
+DELETE /api/routes/
+: Delete a route.
+Notifications
+POST /api/notifications: Send a notification to users.
+GET /api/notifications: Retrieve user notification preferences.
+PUT /api/notifications: Update notification preferences.
